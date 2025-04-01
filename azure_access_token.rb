@@ -2,6 +2,8 @@ require 'sinatra'
 require 'puma'
 require 'httpparty'
 
+set :protection, except: :host
+
 DEFAULT_AZURE_SCOPE = 'api://AzureADTokenExchange/.default'
 NULL_FILE = '/dev/null'
 
