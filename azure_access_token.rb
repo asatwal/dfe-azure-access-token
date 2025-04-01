@@ -3,11 +3,12 @@ require 'puma'
 require 'httpparty'
 
 set :protection, except: :host
+set :server, :puma
+set :bind, '0.0.0.0' # Ensure the app listens on all network interfaces
 
 DEFAULT_AZURE_SCOPE = 'api://AzureADTokenExchange/.default'
 NULL_FILE = '/dev/null'
 
-set :server, :puma
 
 def azure_access_token
   client_id = ENV.fetch('AZURE_CLIENT_ID', nil)
